@@ -1,0 +1,75 @@
+<h2>All books</h2>
+<hr>
+<div class="col-md-12">
+  <table width="100%" class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody width="100%" style="cursor: pointer;" *ngFor="let book of books" (click)="expandBookInfo(book.id)">
+      <tr>
+        <td class="col-md-10">{{ book.title }}</td>
+        <td class="col-md-2 text-right"><a [routerLink]="[ '/books/', book.id] ">modify</a></td>
+      </tr>
+      <tr *ngIf="expandedBookId == book.id">
+        <td colspan="2">
+          <div class="col-md-12">
+            <strong>Description</strong>
+            <p>{{book.description}}</p>
+          </div>
+          <div class="col-md-12">
+            <strong>Authors</strong>
+            <p><span *ngFor="let author of book.authors"><a [routerLink]="[ '/authors/', author.id] ">{{author.firstName}} {{author.lastName}}</a>, </span></p>
+          </div>
+          <div class="col-md-12">
+            <strong>Characters</strong>
+            <div *ngIf="book.characters.length === 0" class="well well-sm">
+              no characters added
+            </div>
+            <p><span *ngFor="let character of book.characters">{{character.name}}, </span></p>
+          </div>
+          <div class="col-md-12">
+            <strong>Genres</strong>
+            <div *ngIf="book.genres.length === 0" class="well well-sm">
+              no genres added
+            </div>
+            <p><span *ngFor="let genre of book.genres">{{genre.name}}, </span></p>
+          </div>
+          <div class="col-md-12">
+            <strong>Series</strong>
+            <div *ngIf="book.series.length === 0" class="well well-sm">
+              no series added
+            </div>
+            <p><span *ngFor="let series of book.series">{{series.name}}, </span></p>
+          </div>
+          <div class="col-md-12">
+            <strong>Editions</strong>
+            <div *ngIf="book.characters.length === 0" class="well well-sm">
+              no editions added
+            </div>
+            <table *ngIf="book.characters.length != 0" width="100%" class="table table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>Publisher</th>
+                  <th>Format</th>
+                  <th>Publish Date</th>
+                  <th>ISBN</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let edition of book.editions">
+                  <td><a [routerLink]="[ '/publishers/', edition.publisher.id] ">{{ edition.publisher.name }}</a></td>
+                  <td>{{ edition.format | lowercase }}</td>
+                  <td>{{ edition.datePublished }}</td>
+                  <td>{{ edition.ISBN }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

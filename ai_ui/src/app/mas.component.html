@@ -1,0 +1,70 @@
+<!--<div class="row">
+  <div class="col-md-4 col-md-offset-4">
+    <h1> Bookr.io</h1>
+  </div>
+</div>
+<div class="row">-->
+<!--BREADCRUMBS-->
+<!--<ul class="breadcrumb text-center" style="margin-bottom:0">
+    <li><button class="btn btn-link" (click)="goTo(0)">Add new book</button></li>
+    <li><button class="btn btn-link" (click)="goTo(8)">View all books</button></li>
+  </ul>
+  <ul *ngIf="currentStep < 7" class="breadcrumb text-center" style="margin-top:0">
+    <li class="{{currentStep === 0 ? 'active': ''}}">Basic Information</li>
+    <li class="{{currentStep === 1 ? 'active': ''}}">Authors</li>
+    <li class="{{currentStep === 2 ? 'active': ''}}">Genres</li>
+    <li class="{{currentStep === 3 ? 'active': ''}}">Series</li>
+    <li class="{{currentStep === 4 ? 'active': ''}}">Characters</li>
+    <li class="{{currentStep === 5 ? 'active': ''}}">Editions</li>
+    <li class="{{currentStep === 6 ? 'active': ''}}">Overview</li>
+  </ul>
+</div>-->
+
+<nav class="navbar navbar-default col-md-6 col-md-offset-3">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Bookr.io</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <!--<li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Link</a></li>-->
+        <li class="dropdown">
+          <a a [routerLink]="['/books']" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Books<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a [routerLink]="['/books']">View all</a></li>
+            <li><a [routerLink]="['/books/create']">Add new</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a [routerLink]="['/authors']" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Authors<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a [routerLink]="['/authors']">View all</a></li>
+            <li><a [routerLink]="['/authors/create']">Add new</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a [routerLink]="['/publishers']" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Publishers<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a [routerLink]="['/publishers']">View all</a></li>
+            <li><a [routerLink]="['/publishers/create']">Add new</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Admin panel</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="col-md-6 col-md-offset-3">
+  <router-outlet></router-outlet>
+</div>
+<div class="row" style="margin-bottom:50px"></div>

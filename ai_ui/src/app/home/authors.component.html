@@ -1,0 +1,16 @@
+table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Website</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let author of authors" >
+      <td>{{ author.firstName}} {{ author.lastName }}</td>
+      <td>{{ author.websiteUrl }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<!--<router-outlet></router-outlet>-->

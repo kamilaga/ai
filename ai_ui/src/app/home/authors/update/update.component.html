@@ -1,0 +1,31 @@
+<h2>Update Author</h2>
+<hr>
+<form novalidate class="form-horizontal" (ngSubmit)="validate()" class="col-md-8 col-md-offset-2">
+  <div class="form-group">
+    <label>First Name</label>
+    <input [(ngModel)]="author.firstName" name="firstName" type="text" class="form-control" placeholder="first name" maxlength="255"
+      required>
+    <div *ngIf="firstNameValidation" class="text-danger">
+      <strong>Warning!</strong> First name is required (min length 255)
+    </div>
+  </div>
+  <div class="form-group">
+    <label control-label>Last Name</label>
+    <input [(ngModel)]="author.lastName" name="lastName" type="text" class="form-control" placeholder="last name" maxlength="255"
+      required>
+    <div *ngIf="lastNameValidation" class="text-danger">
+      <strong>Warning!</strong> Last name is required (min length 255)
+    </div>
+  </div>
+  <div class="form-group">
+    <label control-label>Website</label>
+    <input [(ngModel)]="author.websiteUrl" name="websiteUrl" type="text" class="form-control" placeholder="url" maxlength="255"
+      required>
+    <div *ngIf="websiteValidation" class="text-danger">
+      <strong>Warning!</strong> Website adress is required (min length 255)
+    </div>
+  </div>
+  <div>
+    <button class="btn btn-primary pull-right">Update</button>
+  </div>
+</form>
